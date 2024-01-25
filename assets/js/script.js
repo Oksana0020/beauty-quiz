@@ -154,3 +154,25 @@ const possibleQuestions = [
         correctAnswer: 'Facial symmetry and clear skin',
     },
 ];
+
+//Setting timer for 30 seconds
+let count = 30;
+let redirection = "beautyquiz.html";
+let timer;
+
+function startCountingdown() {
+    var timerElement = document.getElementById("timer");
+    function updateTimer() {
+        if (count > 0) {
+            count--;
+            timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
+            timer = setTimeout(updateTimer, 1000);
+        } else {
+            window.location.href = redirection;
+        }
+    }
+    updateTimer();
+}
+
+// Event listeners
+document.addEventListener("DOMContentLoaded", startCountingdown);
