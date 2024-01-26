@@ -155,24 +155,68 @@ const possibleQuestions = [
     },
 ];
 
-//Setting timer for 30 seconds
-let count = 30;
-let redirection = "beautyquiz.html";
-let timer;
+// Accessing HTML elements
+const questionTextElement = document.getElementById('questiontext');
+const answersListElement = document.getElementById('answers');
+const progressBarElement = document.getElementById('progressbar');
+const questionNumberElement = document.getElementById('questionnumber');
+const nextButton = document.getElementById('nextbutton');
 
-function startCountingdown() {
-    var timerElement = document.getElementById("timer");
-    function updateTimer() {
-        if (count > 0) {
-            count--;
-            timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
-            timer = setTimeout(updateTimer, 1000);
-        } else {
-            window.location.href = redirection;
-        }
-    }
-    updateTimer();
+// Variables
+const totalQuestions = 7;
+let displayedQuestions = [];
+let userAnswers = [];
+let correctAnswersCount = 0;
+let currentQuestionIndex = 0;
+
+// Function starting the quiz
+function startQuiz() {
+    displayQuestion();
 }
 
-// Event listeners
-document.addEventListener("DOMContentLoaded", startCountingdown);
+// Function to display a question
+function displayQuestion() {
+    const currentQuestion = possibleQuestions[currentQuestionIndex];
+    questionTextElement.innerHTML = `<p>${currentQuestion.question}</p>`;
+    displayedQuestions.push(currentQuestion);
+    // Clearing previous answers
+    answersListElement.innerHTML = '';
+
+    // Display answers
+    for (let i = 1; i <= 4; i++) {
+        const answerKey = 'answer' + i;
+        const answerText = currentQuestion[answerKey];
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<p>${answerText}</p>`;
+        listItem.addEventListener('click', function () {
+            selectAnswer(i - 1);
+        });
+        answersListElement.appendChild(listItem);
+    }
+
+    // Update progress bar and question number
+    progressBarElement.innerHTML = `<p>Question ${currentQuestionIndex + 1}/${totalQuestions}</p>`;
+    questionNumberElement.innerHTML = `<p>${currentQuestionIndex + 1}</p>`;
+
+    //Setting timer for 30 seconds
+    let count = 30;
+    let redirection = "beautyquiz.html";
+    let timer;
+
+    function startCountingdown() {
+        var timerElement = document.getElementById("timer");
+        function updateTimer() {
+            if (count > 0) {
+                count--;
+                timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
+                timer = setTimeout(updateTimer, 1000);
+            } else {
+                window.location.href = redirection;
+            }
+        }
+        updateTimer();
+    }
+
+    // Event listeners
+    document.addEventListener("DOMContentLoaded", startCountdown);
+    window.addEventListener('DOMContentLoaded', startQuiz);
