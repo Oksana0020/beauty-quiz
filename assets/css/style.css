@@ -3,20 +3,76 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #FFE6F2;
+    background-color: #FFE6F2; 
     margin-top: 15px;
     margin-left: 30px;
 }
 
-h1,
-h3 {
+h1, h3 {
     color: #FF66B2;
-    font-size: 24px;
+    font-size: 24px; 
 }
 
-/* Introduction*/
+/* Introduction Page */
 #introduction {
     text-align: center;
     padding: 20px;
     font-size: 18px;
+}
+
+#instructions {
+    text-align: left;
+}
+/* Quiz Page */
+#quiz {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px; 
+}
+
+#questioncontainer {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px; 
+}
+
+.answer {
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #FF99CC;
+    background-color: #FFCCF2;
+    text-align: left;
+    font-size: 16px; 
+}
+
+#answers li {
+    margin-bottom: 10px;
+  }
+  
+#progressbar {
+    margin-top: 20px;
+    color: #DA17E6;
+    text-align: left;
+    font-size: 16px; 
+}
+
+#nextbutton {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FF66B2;
+    color: white;
+    border: none;
+    font-size: 18px; 
+}
+
+#nextbutton:hover {
+    background-color: #DA17E6;
+}
+
+/*compound selector for both selected and boldtext classes*/
+.selected.boldtext {
+    font-weight: bold;
+    color: #DA17E6;
+    font-size: 16px; 
 }
