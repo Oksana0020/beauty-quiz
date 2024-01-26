@@ -221,6 +221,25 @@ function displayQuestion() {
     progressBarElement.innerHTML = `<p>Question ${currentQuestionIndex + 1}/${totalQuestions}</p>`;
     questionNumberElement.innerHTML = `<p>${currentQuestionIndex + 1}</p>`;
 
+    // Function for answer selection
+    function selectAnswer(selectedIndex) {
+        // Clearing previous selection and remove bold style
+        const previousSelection = answersListElement.querySelector('.selected');
+        if (previousSelection) {
+            previousSelection.classList.remove('selected');
+            previousSelection.classList.remove('boldtext');
+            userAnswers.push(selectedIndex);
+        }
+
+        // Highlighting selected answer and make it bold with changing color
+        const selectedAnswer = answersListElement.children[selectedIndex];
+        selectedAnswer.classList.add('selected');
+        selectedAnswer.classList.add('boldtext');
+
+        // Saving the answer of the user
+        userAnswers[currentQuestionIndex] = selectedIndex;
+    }
+
     //Setting timer for 30 seconds
     let count = 30;
     let redirection = "beautyquiz.html";
