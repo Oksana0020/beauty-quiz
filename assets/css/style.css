@@ -3,14 +3,15 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #FFE6F2; 
+    background-color: #D3FFCE;
     margin-top: 15px;
     margin-left: 30px;
 }
 
-h1, h3 {
-    color: #FF66B2;
-    font-size: 24px; 
+h1,
+h3 {
+    color: #2ECC71;
+    font-size: 24px;
 }
 
 /* Introduction Page */
@@ -23,56 +24,58 @@ h1, h3 {
 #instructions {
     text-align: left;
 }
+
 /* Quiz Page */
 #quiz {
     text-align: center;
     padding: 20px;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
 #questioncontainer {
     margin-top: 20px;
     text-align: left;
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 .answer {
     cursor: pointer;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #FF99CC;
-    background-color: #FFCCF2;
+    border: 1px solid #4CAF50;
+    background-color: #C9FFD8;
     text-align: left;
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 #answers li {
     margin-bottom: 10px;
-  }
-  
+}
+
 #progressbar {
     margin-top: 20px;
-    color: #DA17E6;
+    color: #239B56;
+    /* Dark green text color */
     text-align: left;
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 #nextbutton {
     margin-top: 20px;
     padding: 20px;
-    background-color: #FF66B2;
+    background-color: #2ECC71;
     color: white;
     border: none;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
 #nextbutton:hover {
-    background-color: #DA17E6;
+    background-color: #239B56;
 }
 
-/*compound selector for both selected and boldtext classes*/
+/* Compound selector that targets both selected and boldtext classes */
 .selected.boldtext {
     font-weight: bold;
-    color: #DA17E6;
-    font-size: 16px; 
+    color: #239B56;
+    font-size: 16px;
 }
