@@ -79,3 +79,16 @@ h3 {
     color: #239B56;
     font-size: 16px;
 }
+
+/* Helptext */
+#helptext {
+    margin-top: 20px;
+    color: #239B56;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Hiding help message */
+.hidden {
+    display: none;
+}
