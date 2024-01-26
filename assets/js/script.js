@@ -169,8 +169,34 @@ let userAnswers = [];
 let correctAnswersCount = 0;
 let currentQuestionIndex = 0;
 
+// Function to shuffle array using Durstenfeld shuffle algorithm;
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+// Function to shuffle array using Durstenfeld shuffle algorithm
+/* Title: How to randomize (shuffle) a JavaScript array?
+Author: Laurens Holst
+Site owner/sponcor: stackoverflow.com
+Date: March, 15 2010
+Edited: September, 28 2012
+Availability: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+Accessed: November, 25 2023
+Modified: Yes. The variable type was changed from var to const
+*************************************************************
+function shuffleArray(array) {
+//more code
+//End of non-original code
+*/
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+
 // Function starting the quiz
 function startQuiz() {
+    shuffleArray(possibleQuestions);
     displayQuestion();
 }
 
@@ -188,9 +214,6 @@ function displayQuestion() {
         const answerText = currentQuestion[answerKey];
         const listItem = document.createElement('li');
         listItem.innerHTML = `<p>${answerText}</p>`;
-        listItem.addEventListener('click', function () {
-            selectAnswer(i - 1);
-        });
         answersListElement.appendChild(listItem);
     }
 
@@ -218,5 +241,5 @@ function displayQuestion() {
     }
 
     // Event listeners
-    document.addEventListener("DOMContentLoaded", startCountdown);
+    document.addEventListener("DOMContentLoaded", startCountingdown);
     window.addEventListener('DOMContentLoaded', startQuiz);
