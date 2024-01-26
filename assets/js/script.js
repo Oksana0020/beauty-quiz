@@ -161,6 +161,7 @@ const answersListElement = document.getElementById('answers');
 const progressBarElement = document.getElementById('progressbar');
 const questionNumberElement = document.getElementById('questionnumber');
 const nextButton = document.getElementById('nextbutton');
+const helpTextElement = document.getElementById('helptext');
 
 // Variables
 const totalQuestions = 7;
@@ -169,7 +170,7 @@ let userAnswers = [];
 let correctAnswersCount = 0;
 let currentQuestionIndex = 0;
 
-// Function to shuffle array using Durstenfeld shuffle algorithm;
+// Function to shuffle array using Durstenfeld shuffle algorithm
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -194,6 +195,7 @@ function shuffleArray(array) {
 */
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
+
 // Function starting the quiz
 function startQuiz() {
     shuffleArray(possibleQuestions);
@@ -205,7 +207,8 @@ function displayQuestion() {
     const currentQuestion = possibleQuestions[currentQuestionIndex];
     questionTextElement.innerHTML = `<p>${currentQuestion.question}</p>`;
     displayedQuestions.push(currentQuestion);
-    // Clearing previous answers
+
+    // Clear previous answers
     answersListElement.innerHTML = '';
 
     // Display answers
@@ -214,51 +217,74 @@ function displayQuestion() {
         const answerText = currentQuestion[answerKey];
         const listItem = document.createElement('li');
         listItem.innerHTML = `<p>${answerText}</p>`;
+        listItem.addEventListener('click', function () {
+            selectAnswer(i - 1);
+        });
         answersListElement.appendChild(listItem);
     }
 
     // Update progress bar and question number
     progressBarElement.innerHTML = `<p>Question ${currentQuestionIndex + 1}/${totalQuestions}</p>`;
     questionNumberElement.innerHTML = `<p>${currentQuestionIndex + 1}</p>`;
+}
 
-    // Function for answer selection
-    function selectAnswer(selectedIndex) {
-        // Clearing previous selection and remove bold style
-        const previousSelection = answersListElement.querySelector('.selected');
-        if (previousSelection) {
-            previousSelection.classList.remove('selected');
-            previousSelection.classList.remove('boldtext');
-            userAnswers.push(selectedIndex);
-        }
-
-        // Highlighting selected answer and make it bold with changing color
-        const selectedAnswer = answersListElement.children[selectedIndex];
-        selectedAnswer.classList.add('selected');
-        selectedAnswer.classList.add('boldtext');
-
-        // Saving the answer of the user
-        userAnswers[currentQuestionIndex] = selectedIndex;
+// Function for answer selection
+function selectAnswer(selectedIndex) {
+    // Clearing previous selection and remove bold style
+    const previousSelection = answersListElement.querySelector('.selected');
+    if (previousSelection) {
+        previousSelection.classList.remove('selected');
+        // classList (Srishti, 2022)
+        previousSelection.classList.remove('boldtext');
+        userAnswers.push(selectedIndex);
     }
 
-    //Setting timer for 30 seconds
-    let count = 30;
-    let redirection = "beautyquiz.html";
-    let timer;
+    // Highlighting selected answer and make it bold with changing color
+    const selectedAnswer = answersListElement.children[selectedIndex];
+    selectedAnswer.classList.add('selected');
+    selectedAnswer.classList.add('boldtext');
 
-    function startCountingdown() {
-        var timerElement = document.getElementById("timer");
-        function updateTimer() {
-            if (count > 0) {
-                count--;
-                timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
-                timer = setTimeout(updateTimer, 1000);
-            } else {
-                window.location.href = redirection;
-            }
-        }
-        updateTimer();
+    // Saving the answer of the user
+    userAnswers[currentQuestionIndex] = selectedIndex;
+}
+
+// Function to move to the next question
+function nextQuestion() {
+    if (answersListElement.querySelector('.selected') === null) {
+        alert('Please choose the answer');
+        return;
     }
+    currentQuestionIndex++;
+    // Check if all questions are answered
+    if (currentQuestionIndex < totalQuestions) {
+        displayQuestion();
+    } else if (currentQuestionIndex === totalQuestions) {
+        // All questions answered, changing the button to Finish
+        nextButton.innerHTML = `<p>Finish</p>`;
+        nextButton.removeEventListener('click', nextQuestion);
+    }
+}
 
-    // Event listeners
-    document.addEventListener("DOMContentLoaded", startCountingdown);
-    window.addEventListener('DOMContentLoaded', startQuiz);
+//Setting timer for 30 seconds
+let count = 30;
+let redirect = "beautyquiz.html";
+let time;
+
+function startingCountdown() {
+    let timerElement = document.getElementById("timer");
+    function updateTimer() {
+        if (count > 0) {
+            count--;
+            timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
+            time = setTimeout(updateTimer, 1000);
+        } else {
+            window.location.href = redirect;
+        }
+    }
+    updateTimer();
+}
+
+// Event listeners
+document.addEventListener("DOMContentLoaded", startingCountdown);
+window.addEventListener('DOMContentLoaded', startQuiz);
+nextButton.addEventListener('click', nextQuestion);
