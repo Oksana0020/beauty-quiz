@@ -9,6 +9,7 @@ const possibleQuestions = [
         answer3: 'A concept that is objective and universal',
         answer4: 'A superficial characteristic with no deeper meaning',
         correctAnswer: 'A combination of qualities that evoke a pleasing response',
+        help: 'Some help visible',
     },
     {
         question: 'What is the subjectivity of beauty?',
@@ -17,6 +18,7 @@ const possibleQuestions = [
         answer3: 'The objective nature of beauty',
         answer4: 'The personal and varied perception of beauty by individuals',
         correctAnswer: 'The personal and varied perception of beauty by individuals',
+        help: 'Some help visible',
     },
 
     {
@@ -26,6 +28,7 @@ const possibleQuestions = [
         answer3: 'Artificial enhancements of appearance',
         answer4: 'Superficial charm and manners',
         correctAnswer: 'Qualities that go beyond physical appearance',
+        help: 'Some help visible',
     },
 
     {
@@ -35,6 +38,7 @@ const possibleQuestions = [
         answer3: 'Breathtaking landscapes and sunsets',
         answer4: 'Paintings and sculptures',
         correctAnswer: 'Breathtaking landscapes and sunsets',
+        help: 'Some help visible',
     },
 
     {
@@ -44,6 +48,7 @@ const possibleQuestions = [
         answer3: 'Dictated by cultural norms',
         answer4: 'Limited to specific art forms',
         correctAnswer: 'Subjective and varies among individuals',
+        help: 'Some help visible',
     },
 
     {
@@ -53,6 +58,7 @@ const possibleQuestions = [
         answer3: 'A desire to imitate others',
         answer4: 'Materialistic pursuits',
         correctAnswer: 'Innovation and creativity',
+        help: 'Some help visible',
     },
 
     {
@@ -62,6 +68,7 @@ const possibleQuestions = [
         answer3: 'Astrological signs',
         answer4: 'Marital status',
         correctAnswer: 'Societal norms and cultural upbringing',
+        help: 'Some help visible',
     },
 
     {
@@ -71,6 +78,7 @@ const possibleQuestions = [
         answer3: 'Philosophy and politics',
         answer4: 'Religion and spirituality',
         correctAnswer: 'Art, design, and technology',
+        help: 'Some help visible',
     },
 
     {
@@ -80,6 +88,7 @@ const possibleQuestions = [
         answer3: 'It enforces uniform beauty standards across cultures',
         answer4: 'It discourages artistic expression',
         correctAnswer: 'It can lead to discrimination based on appearance',
+        help: 'Some help visible',
     },
 
     {
@@ -89,6 +98,7 @@ const possibleQuestions = [
         answer3: 'Intrinsic qualities',
         answer4: 'Aesthetic features',
         correctAnswer: 'Intrinsic qualities',
+        help: 'Some help visible',
     },
 
     {
@@ -98,6 +108,7 @@ const possibleQuestions = [
         answer3: 'Subjective',
         answer4: 'Intrinsic',
         correctAnswer: 'Subjective',
+        help: 'Some help visible',
     },
 
     {
@@ -107,6 +118,9 @@ const possibleQuestions = [
         answer3: 'It motivates individuals to create something aesthetically pleasing',
         answer4: 'It has no impact on creativity and innovation',
         correctAnswer: 'It motivates individuals to create something aesthetically pleasing',
+        help: 'Some help visible',
+
+    
     },
 
     {
@@ -116,6 +130,7 @@ const possibleQuestions = [
         answer3: 'Geometrical shapes only',
         answer4: 'Dark and gloomy places',
         correctAnswer: 'Human behavior and actions',
+        help: 'Some help visible',
     },
 
     {
@@ -125,15 +140,17 @@ const possibleQuestions = [
         answer3: 'It can only evoke negative emotions such as jealousy',
         answer4: 'It leads to emotional detachment',
         correctAnswer: 'It can evoke positive emotions such as joy and admiration',
+        help: 'Some help visible',
     },
 
     {
-        question: 'What does the term “subjectivity of beauty” mean?',
+        question: 'What does the term subjectivity of beauty mean?',
         answer1: 'Beauty is the same for everyone',
         answer2: 'Beauty is different for each individual',
         answer3: 'Beauty is a fixed concept',
         answer4: 'Beauty has no value',
         correctAnswer: 'Beauty is different for each individual',
+        help: 'Some help visible',
     },
 
     {
@@ -143,6 +160,7 @@ const possibleQuestions = [
         answer3: 'Political ideologies',
         answer4: 'Economic factors',
         correctAnswer: 'Cultural norms and media influences',
+        help: 'Some help visible',
     },
 
     {
@@ -152,6 +170,7 @@ const possibleQuestions = [
         answer3: 'Intelligence and creativity',
         answer4: 'Artistic talents',
         correctAnswer: 'Facial symmetry and clear skin',
+        help: 'Some help visible',
     },
 ];
 
@@ -186,7 +205,7 @@ Site owner/sponcor: stackoverflow.com
 Date: March, 15 2010
 Edited: September, 28 2012
 Availability: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-Accessed: November, 25 2023
+Accessed: January, 25 2024
 Modified: Yes. The variable type was changed from var to const
 *************************************************************
 function shuffleArray(array) {
@@ -226,6 +245,12 @@ function displayQuestion() {
     // Update progress bar and question number
     progressBarElement.innerHTML = `<p>Question ${currentQuestionIndex + 1}/${totalQuestions}</p>`;
     questionNumberElement.innerHTML = `<p>${currentQuestionIndex + 1}</p>`;
+    // Display help text
+    helpTextElement.innerHTML = `<p>* Help: ${currentQuestion.help}</p>`;
+
+    // Event listener to show * Help
+    questionTextElement.addEventListener('mouseover', showHelp);
+    questionTextElement.addEventListener('mouseout', hideHelp);
 }
 
 // Function for answer selection
@@ -234,7 +259,6 @@ function selectAnswer(selectedIndex) {
     const previousSelection = answersListElement.querySelector('.selected');
     if (previousSelection) {
         previousSelection.classList.remove('selected');
-        // classList (Srishti, 2022)
         previousSelection.classList.remove('boldtext');
         userAnswers.push(selectedIndex);
     }
@@ -246,6 +270,15 @@ function selectAnswer(selectedIndex) {
 
     // Saving the answer of the user
     userAnswers[currentQuestionIndex] = selectedIndex;
+}
+
+// Functions to show & hide help text
+function showHelp() {
+    helpTextElement.style.display = 'block';
+}
+
+function hideHelp() {
+    helpTextElement.style.display = 'none';
 }
 
 // Function to move to the next question
