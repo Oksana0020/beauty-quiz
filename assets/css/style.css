@@ -23,6 +23,11 @@ h3 {
     vertical-align: middle;
 }
 
+.result {
+    max-width: 20%;
+    vertical-align: middle;
+}
+
 /* Introduction Page */
 #introduction {
     text-align: center;
