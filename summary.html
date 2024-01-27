@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Beauty Quiz: Discover what do you know about beauty</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Beauty Quiz">
     <meta name="keywords" content="beauty, quiz">
     <meta name="author" content="Oksana Fursa">
-    <title>Summary</title>
-<link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="all">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -23,8 +24,9 @@
         const summaryText = localStorage.getItem('quizSummary');
         const userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
 
-        // Display summary
+        // Display summary in the HTML
         document.getElementById('summaryText').innerHTML = summaryText;
+
     </script>
 </body>
 

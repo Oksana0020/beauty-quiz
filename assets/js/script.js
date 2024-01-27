@@ -245,6 +245,7 @@ function displayQuestion() {
     // Update progress bar and question number
     progressBarElement.innerHTML = `<p>Question ${currentQuestionIndex + 1}/${totalQuestions}</p>`;
     questionNumberElement.innerHTML = `<p>${currentQuestionIndex + 1}</p>`;
+
     // Display help text
     helpTextElement.innerHTML = `<p>* Help: ${currentQuestion.help}</p>`;
 
@@ -259,6 +260,7 @@ function selectAnswer(selectedIndex) {
     const previousSelection = answersListElement.querySelector('.selected');
     if (previousSelection) {
         previousSelection.classList.remove('selected');
+        // classList (Srishti, 2022)
         previousSelection.classList.remove('boldtext');
         userAnswers.push(selectedIndex);
     }
@@ -273,6 +275,7 @@ function selectAnswer(selectedIndex) {
 }
 
 // Functions to show & hide help text
+//style.display (w3schools, 2023)
 function showHelp() {
     helpTextElement.style.display = 'block';
 }
@@ -295,7 +298,20 @@ function nextQuestion() {
         // All questions answered, changing the button to Finish
         nextButton.innerHTML = `<p>Finish</p>`;
         nextButton.removeEventListener('click', nextQuestion);
+        nextButton.addEventListener('click', showSummary);
     }
+}
+
+// showing the Summary
+function showSummary() {
+    const summaryText = generateSummary();
+    localStorage.setItem('quizSummary', summaryText);
+
+    // Saving user answers
+    localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+
+    // Open a new window with the summary
+    const summaryWindow = window.open('summary.html');
 }
 
 function generateSummary() {
@@ -335,26 +351,38 @@ function generateSummary() {
 
     summaryText += `<h3>You have got ${correctCount} correct answers out of 7 questions.</h3>`;
 
-    //Setting timer for 30 seconds
-    let count = 30;
-    let redirect = "beautyquiz.html";
-    let time;
-
-    function startingCountdown() {
-        let timerElement = document.getElementById("timer");
-        function updateTimer() {
-            if (count > 0) {
-                count--;
-                timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
-                time = setTimeout(updateTimer, 1000);
-            } else {
-                window.location.href = redirect;
-            }
-        }
-        updateTimer();
+    // Different final messages based on the result
+    if (correctCount < 4) {
+        summaryText += '<h2>We offer you to discover more about consepts of beauty.</h2><br><br>';
+    } else if (correctCount === 4 || correctCount === 5 || correctCount === 6) {
+        summaryText += '<h2>Great job! You know a lot about beauty!</h2><br><br>';
+    } else if (correctCount === 7) {
+        summaryText += '<h2>Excellent! You are a professional in beauty world!</h2><br><br>';
     }
 
-    // Event listeners
-    document.addEventListener("DOMContentLoaded", startingCountdown);
-    window.addEventListener('DOMContentLoaded', startQuiz);
-    nextButton.addEventListener('click', nextQuestion);
+    return summaryText;
+}
+
+//Setting timer for 30 seconds
+let count = 30;
+let redirect = "beautyquiz.html";
+let time;
+
+function startingCountdown() {
+    let timerElement = document.getElementById("timer");
+    function updateTimer() {
+        if (count > 0) {
+            count--;
+            timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
+            time = setTimeout(updateTimer, 1000);
+        } else {
+            window.location.href = redirect;
+        }
+    }
+    updateTimer();
+}
+
+// Event listeners
+document.addEventListener("DOMContentLoaded", startingCountdown);
+window.addEventListener('DOMContentLoaded', startQuiz);
+nextButton.addEventListener('click', nextQuestion);
