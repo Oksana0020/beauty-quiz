@@ -351,16 +351,16 @@ function generateSummary() {
 
     summaryText += `<h3>You have got ${correctCount} correct answers out of 7 questions.</h3>`;
 
-    // Different final messages based on the result
+    // Different final messages and smiles based on the result
     if (correctCount < 4) {
         summaryText += '<h2>We offer you to discover more about consepts of beauty.</h2><br><br>';
-        <img class="result" src="assets/images/image3.png" alt="Sad smile"></img>
+        <img class="result" src="assets/images/image3.png" alt="Sad smile"></img>;
     } else if (correctCount === 4 || correctCount === 5 || correctCount === 6) {
         summaryText += '<h2>Great job! You know a lot about beauty!</h2><br><br>';
-        <img class="result" src="assets/images/image4.png" alt="Smiley smile"></img>
+        <img class="result" src="assets/images/image4.png" alt="Smiley smile"></img>;
     } else if (correctCount === 7) {
         summaryText += '<h2>Excellent! You are a professional in beauty world!</h2><br><br>';
-        <img class="result" src="assets/images/image5.png" alt="Happy smile"></img>
+        <img class="result" src="assets/images/image5.png" alt="Happy smile"></img>;
     }
 
     return summaryText;
