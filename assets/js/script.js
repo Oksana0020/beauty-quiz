@@ -295,8 +295,8 @@ function nextQuestion() {
     if (currentQuestionIndex < totalQuestions) {
         displayQuestion();
     } else if (currentQuestionIndex === totalQuestions) {
-        // All questions answered, changing the button to Finish
-        nextButton.innerHTML = `<p>Finish</p>`;
+        // All questions answered, changing the button to Results
+        nextButton.innerHTML = `<p>Your Results</p>`;
         nextButton.removeEventListener('click', nextQuestion);
         nextButton.addEventListener('click', showSummary);
     }

@@ -86,7 +86,8 @@ h3 {
     background-color: #2ECC71;
     color: white;
     border: none;
-    font-size: 1em;
+    font-size: 2em;
+    border-radius: 30%;
 }
 
 #nextbutton:hover {
