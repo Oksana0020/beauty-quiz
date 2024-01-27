@@ -9,7 +9,7 @@ const possibleQuestions = [
         answer3: 'A concept that is objective and universal',
         answer4: 'A superficial characteristic with no deeper meaning',
         correctAnswer: 'A combination of qualities that evoke a pleasing response',
-        help: 'Some help visible',
+        help: 'Explain the concept of beauty and what it entails.',
     },
     {
         question: 'What is the subjectivity of beauty?',
@@ -18,7 +18,7 @@ const possibleQuestions = [
         answer3: 'The objective nature of beauty',
         answer4: 'The personal and varied perception of beauty by individuals',
         correctAnswer: 'The personal and varied perception of beauty by individuals',
-        help: 'Some help visible',
+        help: 'Describe what is meant by the subjectivity of beauty.',
     },
 
     {
@@ -28,7 +28,7 @@ const possibleQuestions = [
         answer3: 'Artificial enhancements of appearance',
         answer4: 'Superficial charm and manners',
         correctAnswer: 'Qualities that go beyond physical appearance',
-        help: 'Some help visible',
+        help: 'Define inner beauty as the qualities that extend beyond mere physical appearance, emphasizing traits that contribute to a character and personality.',
     },
 
     {
@@ -38,7 +38,7 @@ const possibleQuestions = [
         answer3: 'Breathtaking landscapes and sunsets',
         answer4: 'Paintings and sculptures',
         correctAnswer: 'Breathtaking landscapes and sunsets',
-        help: 'Some help visible',
+        help: 'Explore the natural world to discover beauty, particularly in awe-inspiring landscapes and captivating sunsets that showcase the wonders of the environment.',
     },
 
     {
@@ -48,7 +48,7 @@ const possibleQuestions = [
         answer3: 'Dictated by cultural norms',
         answer4: 'Limited to specific art forms',
         correctAnswer: 'Subjective and varies among individuals',
-        help: 'Some help visible',
+        help: 'Give examples of beauty in art',
     },
 
     {
@@ -58,7 +58,7 @@ const possibleQuestions = [
         answer3: 'A desire to imitate others',
         answer4: 'Materialistic pursuits',
         correctAnswer: 'Innovation and creativity',
-        help: 'Some help visible',
+        help: 'What beauty gives in terms of inspiration',
     },
 
     {
@@ -68,7 +68,7 @@ const possibleQuestions = [
         answer3: 'Astrological signs',
         answer4: 'Marital status',
         correctAnswer: 'Societal norms and cultural upbringing',
-        help: 'Some help visible',
+        help: 'Give factors which influence beauty',
     },
 
     {
@@ -78,7 +78,7 @@ const possibleQuestions = [
         answer3: 'Philosophy and politics',
         answer4: 'Religion and spirituality',
         correctAnswer: 'Art, design, and technology',
-        help: 'Some help visible',
+        help: 'In which field does beauty have great impact',
     },
 
     {
@@ -88,7 +88,7 @@ const possibleQuestions = [
         answer3: 'It enforces uniform beauty standards across cultures',
         answer4: 'It discourages artistic expression',
         correctAnswer: 'It can lead to discrimination based on appearance',
-        help: 'Some help visible',
+        help: 'What are effects of beauty',
     },
 
     {
@@ -98,7 +98,7 @@ const possibleQuestions = [
         answer3: 'Intrinsic qualities',
         answer4: 'Aesthetic features',
         correctAnswer: 'Intrinsic qualities',
-        help: 'Some help visible',
+        help: 'Choose one quality',
     },
 
     {
@@ -108,7 +108,7 @@ const possibleQuestions = [
         answer3: 'Subjective',
         answer4: 'Intrinsic',
         correctAnswer: 'Subjective',
-        help: 'Some help visible',
+        help: 'Use descriptive word for beauty',
     },
 
     {
@@ -118,7 +118,7 @@ const possibleQuestions = [
         answer3: 'It motivates individuals to create something aesthetically pleasing',
         answer4: 'It has no impact on creativity and innovation',
         correctAnswer: 'It motivates individuals to create something aesthetically pleasing',
-        help: 'Some help visible',
+        help: 'Explain what beauty can do for innovations',
 
 
     },
@@ -130,7 +130,7 @@ const possibleQuestions = [
         answer3: 'Geometrical shapes only',
         answer4: 'Dark and gloomy places',
         correctAnswer: 'Human behavior and actions',
-        help: 'Some help visible',
+        help: 'Choose one field where beauty exists',
     },
 
     {
@@ -140,7 +140,7 @@ const possibleQuestions = [
         answer3: 'It can only evoke negative emotions such as jealousy',
         answer4: 'It leads to emotional detachment',
         correctAnswer: 'It can evoke positive emotions such as joy and admiration',
-        help: 'Some help visible',
+        help: 'Explain how beauty influences on well-being',
     },
 
     {
@@ -150,7 +150,7 @@ const possibleQuestions = [
         answer3: 'Beauty is a fixed concept',
         answer4: 'Beauty has no value',
         correctAnswer: 'Beauty is different for each individual',
-        help: 'Some help visible',
+        help: 'Explain definition of subjectivity',
     },
 
     {
@@ -160,7 +160,7 @@ const possibleQuestions = [
         answer3: 'Political ideologies',
         answer4: 'Economic factors',
         correctAnswer: 'Cultural norms and media influences',
-        help: 'Some help visible',
+        help: 'WHo forms standards of beauty',
     },
 
     {
@@ -170,7 +170,7 @@ const possibleQuestions = [
         answer3: 'Intelligence and creativity',
         answer4: 'Artistic talents',
         correctAnswer: 'Facial symmetry and clear skin',
-        help: 'Some help visible',
+        help: 'Choose example of physical beauty',
     },
 ];
 
