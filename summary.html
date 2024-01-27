@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beauty Quiz">
+    <meta name="keywords" content="beauty, quiz">
+    <meta name="author" content="Oksana Fursa">
+    <title>Summary</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="summary">
+        <h1>Quiz Summary</h1>
+        <p id="summaryText"></p>
+        <p id="grade"></p>
+    </div>
+
+    <script>
+        // Retrieve summary from local storage
+        const summaryText = localStorage.getItem('quizSummary');
+        const userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
+
+        // Display summary
+        document.getElementById('summaryText').innerHTML = summaryText;
+    </script>
+</body>
+
+</html>
