@@ -120,7 +120,7 @@ const possibleQuestions = [
         correctAnswer: 'It motivates individuals to create something aesthetically pleasing',
         help: 'Some help visible',
 
-    
+
     },
 
     {
@@ -205,7 +205,7 @@ Site owner/sponcor: stackoverflow.com
 Date: March, 15 2010
 Edited: September, 28 2012
 Availability: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-Accessed: January, 25 2024
+Accessed: January, 27 2024
 Modified: Yes. The variable type was changed from var to const
 *************************************************************
 function shuffleArray(array) {
@@ -298,26 +298,63 @@ function nextQuestion() {
     }
 }
 
-//Setting timer for 30 seconds
-let count = 30;
-let redirect = "beautyquiz.html";
-let time;
+function generateSummary() {
+    let summaryText = '<h2>Here you can check your results: </h2><br><br>';
+    let correctCount = 0;
+    for (let i = 0; i < displayedQuestions.length; i++) {
+        const currentQuestion = displayedQuestions[i];
+        const question = currentQuestion.question;
+        const userAnswerIndex = userAnswers[i];
+        const userAnswer = currentQuestion['answer' + (userAnswerIndex + 1)];
+        const correctAnswer = currentQuestion.correctAnswer;
 
-function startingCountdown() {
-    let timerElement = document.getElementById("timer");
-    function updateTimer() {
-        if (count > 0) {
-            count--;
-            timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
-            time = setTimeout(updateTimer, 1000);
-        } else {
-            window.location.href = redirect;
+        // Displaying question details
+        summaryText += `Question: ${question}<br>`;
+
+        // Special message for correct answer
+        if (userAnswer === correctAnswer) {
+            summaryText += `<h3>This question is answered correct!!!</h3>`;
+        }
+
+        // Answers that were offered
+        summaryText += `Answers that were offered for you were:<br>`;
+        for (let j = 1; j <= 4; j++) {
+            const answerKey = 'answer' + j;
+            summaryText += `${currentQuestion[answerKey]}<br>`;
+        }
+
+        // Display user's answer and correct answer
+        summaryText += `Your Answer: ${userAnswer}<br>`;
+        summaryText += `Correct Answer: ${correctAnswer}<br><br><hr><br><br>`;
+
+        // Checking if the user's answer is correct
+        if (userAnswer === correctAnswer) {
+            correctCount++;
         }
     }
-    updateTimer();
-}
 
-// Event listeners
-document.addEventListener("DOMContentLoaded", startingCountdown);
-window.addEventListener('DOMContentLoaded', startQuiz);
-nextButton.addEventListener('click', nextQuestion);
+    summaryText += `<h3>You have got ${correctCount} correct answers out of 7 questions.</h3>`;
+
+    //Setting timer for 30 seconds
+    let count = 30;
+    let redirect = "beautyquiz.html";
+    let time;
+
+    function startingCountdown() {
+        let timerElement = document.getElementById("timer");
+        function updateTimer() {
+            if (count > 0) {
+                count--;
+                timerElement.innerHTML = "This page will redirect in " + count + " seconds.";
+                time = setTimeout(updateTimer, 1000);
+            } else {
+                window.location.href = redirect;
+            }
+        }
+        updateTimer();
+    }
+
+    // Event listeners
+    document.addEventListener("DOMContentLoaded", startingCountdown);
+    window.addEventListener('DOMContentLoaded', startQuiz);
+    nextButton.addEventListener('click', nextQuestion);
