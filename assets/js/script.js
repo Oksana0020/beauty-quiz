@@ -369,8 +369,8 @@ function generateSummary() {
     return summaryText;
 }
 
-//Setting timer for 30 seconds
-let count = 30;
+//Setting timer for 60 seconds
+let count = 60;
 let redirect = "beautyquiz.html";
 let time;
 
