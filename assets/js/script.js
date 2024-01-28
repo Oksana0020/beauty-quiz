@@ -296,7 +296,7 @@ function nextQuestion() {
         displayQuestion();
     } else if (currentQuestionIndex === totalQuestions) {
         // All questions answered, changing the button to Results
-        nextButton.innerHTML = `<p>Your Results</p>`;
+        nextButton.innerHTML = `<p>Results</p>`;
         nextButton.removeEventListener('click', nextQuestion);
         nextButton.addEventListener('click', showSummary);
     }
