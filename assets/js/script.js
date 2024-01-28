@@ -160,7 +160,7 @@ const possibleQuestions = [
         answer3: 'Political ideologies',
         answer4: 'Economic factors',
         correctAnswer: 'Cultural norms and media influences',
-        help: 'WHo forms standards of beauty',
+        help: 'Who forms standards of beauty',
     },
 
     {
