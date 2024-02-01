@@ -107,3 +107,8 @@ This site was deployed on Github Pages:
 •	Questions are taken from <https://onlineexammaker.com/kb/30-beauty-quiz-questions-and-answers/>
 •	Images from <https://pixabay.com/>
 •	The code for the Durstenfeld shuffle algorithm taken from stackoverflow.com
+• The following article was used for information on classlists
+Srishti. (2022, 12 6). How does classList Work in JavaScript?
+Retrieved from Scaler topics: <https://www.scaler.com/topics/classlist-javascript/>
+• The following article was used for information on 
+Nosa Obaseki.LocalStorage in JavaScript: A complete guide (2023,28 3) <https://blog.logrocket.com/localstorage-javascript-complete-guide/>
